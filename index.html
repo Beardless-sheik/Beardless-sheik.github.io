@@ -1,0 +1,88 @@
+<!-- Please see the beat_demo.html for more details on how this code works.  All comments will be related to
+new features/functions that were used for this specific example. -->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Connect Four</title>
+		<script src="main.js"></script>
+		<style>
+			.click_button {
+				height: 42px;
+				width: 42px;
+				border-radius: 24px;
+				background-color: rgba(255,0,0,1);
+				cursor: pointer;
+			}
+			
+		
+				height: 40px;
+				width: 40px;
+				display:block;
+				border-radius: 16px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			/* Player 0 (no player) will have a light-grey background */
+			.player0 {
+				background-color: #DDDDDD; 
+			}
+			
+			/* player 1 will have a red background */
+			.player1 {
+				background-color: #FF0000;
+			}
+			
+			/* player 2 will have a blue background */
+			.player2 {
+				background-color: #0000FF;	
+			}
+			
+			/* set the board square to having a dark-grey border, and to be 36x36 square */
+			.board_square {
+				border: 1px solid #555555;
+				height: 40px;
+				width: 40px;
+			}
+			
+		</style>
+			
+	</head>
+	<body onload="beginGame();">
+		<h1>Connect Four</h1>
+		<p>2 Player Connect 4 Game. Press Begin Game To Play!</p>
+		
+		<!-- The begin_game button will run "beginGame()" function when clicked.  The () is required at the end to show it is a 
+		function, but no parameters are displaying -->
+		<button id="begin_game" onclick="beginGame();">Begin Game <br> </button>
+		<div id="gameboard">
+			<div id="game_info">
+			</div>
+			<table id="game_table">
+				<thead>
+					<tr>
+						<!-- Set up the buttons that will drop the pieces in to the column.  -->
+						<td><button onclick="drop(0);">Drop Ball</button></td>
+						<td><button onclick="drop(1);">Drop Ball</button></td>
+						<td><button onclick="drop(2);">Drop Ball</button></td>
+						<td><button onclick="drop(3);">Drop Ball</button></td>
+						<td><button onclick="drop(4);">Drop Ball</button></td>
+						<td><button onclick="drop(5);">Drop Ball</button></td>
+						<td><button onclick="drop(6);">Drop Ball</button></td>
+					</tr>
+                    <script>
+                    for (var row=0; row<=5; row++) {
+					document.writeln("<tr>");	
+					for (var col=0; col<=6; col++) {
+						document.writeln("<td id='square_" + row + "_"+ col +"' class='board_square'></td>");
+					}
+					document.writeln("</tr>");
+                        }
+                    </script>
+				</thead>
+			</table>
+			<div id="game_status">
+			</div>
+		</div>
+	</body>
+</html>
