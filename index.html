@@ -4,7 +4,9 @@ new features/functions that were used for this specific example. -->
 <html>
 	<head>
 		<title>Connect Four</title>
-		<script src="main.js"></script>
+		<script src= "main.js" type="text/javascript">
+		</script>
+		
 		<style>
 			.click_button {
 				height: 42px;
@@ -14,9 +16,11 @@ new features/functions that were used for this specific example. -->
 				cursor: pointer;
 			}
 			
-		
-				height: 40px;
-				width: 40px;
+			/* Make each piece square - 32x32, set the border-radius to 16px (so that it appears round) and center it using margin-left
+			and margin-right: auto */
+			.piece {
+				height: 32px;
+				width: 32px;
 				display:block;
 				border-radius: 16px;
 				margin-left: auto;
@@ -25,12 +29,12 @@ new features/functions that were used for this specific example. -->
 			
 			/* Player 0 (no player) will have a light-grey background */
 			.player0 {
-				background-color: #DDDDDD; 
+				background-color: #DDDDDD; /* hex colors were used, but rgb/rgba could be used as well */
 			}
 			
-			/* player 1 will have a red background */
+			/* player 1 will have a green background */
 			.player1 {
-				background-color: #FF0000;
+				background-color: #0b6623;
 			}
 			
 			/* player 2 will have a blue background */
@@ -48,39 +52,53 @@ new features/functions that were used for this specific example. -->
 		</style>
 			
 	</head>
-	<body onload="beginGame();">
+	<body>
+		
 		<h1>Connect Four</h1>
-		<p>2 Player Connect 4 Game. Press Begin Game To Play!</p>
+		<p>Connect Four is a game where players take turn dropping colored circles into a board. To win the game one must have 4 of their balls form a straight line either vertically, horizontally or diagonaly.</p>
+		<p>No AI coded. Only human players (2 of them!).</p>
 		
 		<!-- The begin_game button will run "beginGame()" function when clicked.  The () is required at the end to show it is a 
 		function, but no parameters are displaying -->
-		<button id="begin_game" onclick="beginGame();">Begin Game <br> </button>
+		<button id="begin_game" onclick="beginGame();">Begin Game</button>
+        
+       <!-- <button id="Reset Game" onclick="resetGame();">Reset Game</button> -->
 		<div id="gameboard">
 			<div id="game_info">
 			</div>
 			<table id="game_table">
 				<thead>
 					<tr>
-						<!-- Set up the buttons that will drop the pieces in to the column.  -->
-						<td><button onclick="drop(0);">Drop Ball</button></td>
-						<td><button onclick="drop(1);">Drop Ball</button></td>
-						<td><button onclick="drop(2);">Drop Ball</button></td>
-						<td><button onclick="drop(3);">Drop Ball</button></td>
-						<td><button onclick="drop(4);">Drop Ball</button></td>
-						<td><button onclick="drop(5);">Drop Ball</button></td>
-						<td><button onclick="drop(6);">Drop Ball</button></td>
+						<!-- Set up the buttons that will drop the pieces in to the column.  This could be programmatically generated like
+						the rows/columns below, but since it was just 7, it wouldn't really save code -->
+						<td><button onclick="drop(0);">Drop</button></td>
+						<td><button onclick="drop(1);">Drop</button></td>
+						<td><button onclick="drop(2);">Drop</button></td>
+						<td><button onclick="drop(3);">Drop</button></td>
+						<td><button onclick="drop(4);">Drop</button></td>
+						<td><button onclick="drop(5);">Drop</button></td>
+						<td><button onclick="drop(6);">Drop</button></td>
 					</tr>
-                    <script>
-                    for (var row=0; row<=5; row++) {
+				</thead>
+				<script>
+				/*
+				a for loop is a basic concept for running a set of code multiple times.  It has 3 parameters, the first is a variable
+				name, in this case I used "row" and "col" I then set the value to 0.  The next parameter is 'under what conditions should 
+				i repeat the code below.  As long as that 2nd condition is "true" the code below will run.  The last parameter
+				is the increment.  This is run every time the code below is run.  In the loops below, I have i++ and j++ which means 
+				"add one to the value of row/col" 
+				*/
+				for (var row=0; row<=5; row++) {
 					document.writeln("<tr>");	
 					for (var col=0; col<=6; col++) {
-						document.writeln("<td id='square_" + row + "_"+ col +"' class='board_square'></td>");
+						document.writeln("<td id='square_" + row + "_"+ col +"' class='board_square'></td>");							
 					}
-					document.writeln("</tr>");
-                        }
-                    </script>
-				</thead>
+					document.writeln("</tr>");	
+				}						
+										
+				</script>
 			</table>
+			<!-- game_status is a place for the game to provide status updates. -->
 			<div id="game_status">
 			</div>
 		</div>
