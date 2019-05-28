@@ -6,11 +6,7 @@
 			player_color[1] = "green"; //set the player_color for player 1 to "green" 
 			player_color[2] = "blue"; // set the player_color for player 2 to "blue"
 			
-            function resetGame(){
-                game_active=false;
-                endGame(Nobody!);
-            }
-
+          
 			function beginGame() {
 				if (game_active == true) 
                     return false;
@@ -41,7 +37,7 @@
 			
 			/* drawBoard will draw the board - it will update each item to make sure it is the appropriate value */
 			function drawBoard() {
-                
+                		checkForWin(); //check to see if any player has won.
 				for (col = 0; col<=6; col++) {
 					for (row=0; row<=5; row++) {
 						//Set the inner HTML of the square (a td) to be a span with the class of 'piece' and 'player' + the value of that 
@@ -49,7 +45,7 @@
 						document.getElementById('square_'+row+'_'+col).innerHTML ="<span class='piece player"+gameboard[row][col]+"'> </span>";
 					}	
 				}
-                checkForWin(); //check to see if any player has won.
+                
 			}
 			
 			function checkForWin() {
