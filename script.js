@@ -133,7 +133,7 @@
 			/* drop will add a piece to the lowest available column */
 			function drop(col) {
 					/* Look for the lowest point in this row that is open */
-					for (row=5; row>=0; row--) { 
+					for (let row=5; row>=0; row--) { 
 						if (gameboard[row][col] == 0 && game_active===true) {
 							gameboard[row][col] = active_player;
 							drawBoard(); // draw the board.
