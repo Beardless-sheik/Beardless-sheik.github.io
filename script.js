@@ -119,7 +119,7 @@
 			/* endGame will end the game - any additional functions or things you want to happen when the game is over can go here */
 			function endGame(winningPlayer) {
 				game_active = false; //set the "game_active" to false, so that it can be started again.
-				document.getElementById('game_info').innerHTML = "Winner: " + winningPlayer; //set the "game_info" to the winner and the winning player #
+				document.getElementById('game_info').innerHTML = "Winner of the silly game is: " + winningPlayer; //set the "game_info" to the winner and the winning player 
 			}
 			
 			/* setUpTurn will display who is the active player */
